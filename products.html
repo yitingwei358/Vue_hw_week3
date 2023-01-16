@@ -129,7 +129,7 @@
                       <img class="img-fluid" :src="item" />
                     </div>
                     <div>
-                      <!-- 如果組圖陣列不存在(沒有長度)，或陣列最後一筆有值(不為空值)，則顯示新增圖片按鈕，按下後push一個空的資料到陣列的最後，作為上傳圖片的新區塊 -->
+                      <!-- 如果組圖陣列一個欄位都沒有(沒有長度)，或陣列最後一筆有值(不為空值)，則顯示新增圖片按鈕，按下後push一個空的資料到陣列的最後，作為上傳圖片的新區塊 -->
                       <div
                         v-if=" !tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]"
                       >
@@ -158,7 +158,7 @@
                       class="btn btn-outline-primary btn-sm d-block w-100"
                       @click="createImages"
                     >
-                      新增圖片00
+                      新增圖片
                     </button>
                   </template>
                 </div>

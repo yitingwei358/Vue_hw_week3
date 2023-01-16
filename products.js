@@ -35,7 +35,6 @@ createApp({
         .get(url)
         .then((res) => {
           this.products = res.data.products;
-          console.log(res.data.products);
         })
         .catch((err) => {
           alert(err.data.message);
@@ -44,6 +43,7 @@ createApp({
     // Bootstrap5 互動視窗 Modal
     openModal(effect, item) {
       // 建立新的產品時先清空 tempProduct 內的資料，避免上一筆沒儲存的資料仍顯示出來
+      // 用展開的語法來複製，如果直接寫 this.tempProduct = item，就會直接動到原本的展品資料
       if (effect === "new") {
         this.tempProduct = {
           imagesUrl: [],
@@ -75,6 +75,7 @@ createApp({
         });
     },
     updateItem() {
+      // 因為這邊的url會重新賦值，所以用let沒有用const
       let url = `${this.api}/api/${this.path}/admin/product`;
       let http = "post";
       if (!this.isNew) {
